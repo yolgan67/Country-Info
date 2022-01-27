@@ -25,7 +25,8 @@ select.addEventListener("change", async () => {
     await fetch(`https://restcountries.com/v3.1/name/${select.value}`)
   ).json();
   console.log(data);
-  info.style.visibility = "visible";
+  info.style.display="block"
+  world.style.display="none"
   info.classList.add("visible");
   flag.src = data[0].flags.png;
   name.innerHTML = data[0].name.common.toUpperCase();
