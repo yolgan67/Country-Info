@@ -11,19 +11,19 @@ const area = document.getElementById("area");
 const currency = document.getElementById("currency");
 const border = document.getElementById("border");
 const map = document.getElementById("map");
+const world = document.getElementById("world")
 
 // Select List
 import countryList from "./countrylist.js";
 for (let i = 0; i < countryList.length; i++) {
-  
+
   const x = ` <option value="${countryList[i].name}">${countryList[i].name}</option>`;
   select.insertAdjacentHTML("beforeend", x);
 }
 
 select.addEventListener("change", async () => {
   const data = await (
-    await fetch(`https://restcountries.com/v3.1/name/${select.value}`)
-  ).json();
+    await fetch(`https://restcountries.com/v3.1/name/${select.value}`)).json();
   console.log(data);
   info.style.display="block"
   world.style.display="none"
@@ -61,7 +61,7 @@ select.addEventListener("change", async () => {
 
   // Map
   map.onclick = () => {
-  
+
     window.location.href = `${Object.values(data[0].maps)[0]}`;
   };
 
